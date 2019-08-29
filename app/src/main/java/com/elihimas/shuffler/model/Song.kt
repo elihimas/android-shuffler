@@ -1,5 +1,3 @@
 package com.elihimas.shuffler.model
 
-class Song {
-
-}
+data class Song(val trackName: String, val artistName: String, val artworkUrl: String)
