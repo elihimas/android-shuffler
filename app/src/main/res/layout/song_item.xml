@@ -1,30 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="start|center"
-    android:orientation="horizontal">
+    android:background="@color/colorPrimaryDark">
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/image_container"
         android:layout_width="@dimen/artwork_size"
-        android:layout_height="@dimen/artwork_size">
+        android:layout_height="@dimen/artwork_size"
+        android:layout_margin="@dimen/artwork_margin"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="@dimen/artwork_corner"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/artwork_image"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:src="@tools:sample/avatars" />
+            android:layout_height="match_parent">
 
-    </FrameLayout>
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/artwork_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@tools:sample/avatars" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/song_name_text"
         style="@style/SongNameText"
+        android:layout_width="0dp"
+        android:layout_toEndOf="@id/image_container"
+        android:gravity="start"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_container"
         tools:text="Samba em prelúdio" />
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/song_info_text"
+        style="@style/SongInfoText"
+        android:layout_width="0dp"
+        android:layout_below="@id/song_name_text"
+        android:layout_toEndOf="@id/image_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_container"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"
+        tools:text="Vinicius de Moraes (Bossa Nova)" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_separator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

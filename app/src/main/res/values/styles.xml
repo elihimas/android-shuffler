@@ -12,16 +12,31 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="SongNameText" parent="@android:style/TextAppearance">
+    <style name="BaseTextAppearance" parent="@android:style/TextAppearance">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:paddingStart">12dp</item>
     </style>
 
-    <style name="ErrorText" parent="@android:style/TextAppearance">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="SplashText" parent="BaseTextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="SongNameText" parent="BaseTextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="SongInfoText" parent="BaseTextAppearance">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="ErrorText" parent="BaseTextAppearance">
         <item name="android:textSize">16sp</item>
         <item name="android:padding">15dp</item>
     </style>

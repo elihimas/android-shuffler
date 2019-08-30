@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.elihimas.shuffler.R
-import com.elihimas.shuffler.business.SongShuffler
 import com.elihimas.shuffler.model.Song
 import kotlinx.android.synthetic.main.song_item.view.*
 
@@ -38,6 +37,7 @@ class SongHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(song: Song, imageLoader: LruImageLoader) {
         view.artwork_image.setImageUrl(song.artworkUrl, imageLoader)
         view.song_name_text.text = song.trackName
+        view.song_info_text.text = "${song.artistName} (${song.genreName})"
     }
 
 }

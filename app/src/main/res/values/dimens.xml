@@ -1,3 +1,5 @@
 <resources>
-    <dimen name="artwork_size">50dp</dimen>
+    <dimen name="artwork_size">76dp</dimen>
+    <dimen name="artwork_corner">38dp</dimen>
+    <dimen name="artwork_margin">15dp</dimen>
 </resources>
