@@ -14,7 +14,7 @@ class SongsLoader(val context: Context) {
 
     private companion object {
         const val BASE_URL =
-            "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?id=$1"
+            "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?id=%s"
     }
 
     private val queue = Volley.newRequestQueue(context)
@@ -25,8 +25,9 @@ class SongsLoader(val context: Context) {
         fun stringToSongs(songsString: String): List<Song> {
             val gson = Gson()
             val response = gson.fromJson(songsString, LookupResponse::class.java)
+            val songsWithoutFirstItem = response.results.subList(1, response.results.size)
 
-            return response.results
+            return songsWithoutFirstItem
         }
 
         fun loadSuccess(response: String) {

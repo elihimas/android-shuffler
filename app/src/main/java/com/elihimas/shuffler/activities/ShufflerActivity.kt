@@ -11,19 +11,24 @@ import com.android.volley.VolleyError
 import com.elihimas.shuffler.R
 import com.elihimas.shuffler.activities.model.SongsListState
 import com.elihimas.shuffler.activities.model.SongsViewModel
+import com.elihimas.shuffler.adapters.SongsAdapter
 import com.elihimas.shuffler.model.Song
 import kotlinx.android.synthetic.main.activity_shuffler.*
 
 class ShufflerActivity : AppCompatActivity() {
 
     companion object {
+
         fun start(context: Context) {
             val intent = Intent(context, ShufflerActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             }
             context.startActivity(intent)
         }
+    }
 
+    private val songsAdapter by lazy {
+        SongsAdapter(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +45,8 @@ class ShufflerActivity : AppCompatActivity() {
 
         showLoading()
         model.loadData(this)
+
+        items_recycler.adapter = songsAdapter
     }
 
     fun showLoading() {
@@ -59,17 +66,19 @@ class ShufflerActivity : AppCompatActivity() {
         if (songs != null) {
             showSongs(songs)
         } else {
-            songsListState.error?.let { error ->
-                showError(error)
-            }
+            showLoadError(songsListState.error)
         }
     }
 
     private fun showSongs(songs: List<Song>) {
-
+        songsAdapter.updateList(songs)
     }
 
-    private fun showError(error: VolleyError) {
+    private fun showLoadError(error: VolleyError?) {
+        items_recycler.visibility = View.GONE
+        progress_bar.visibility = View.GONE
+        error_text.visibility = View.VISIBLE
 
+        error_text.setText(R.string.load_error)
     }
 }

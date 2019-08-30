@@ -1,2 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="artists_ids">
+        <item>909253</item>
+        <item>1171421960</item>
+        <item>358714030</item>
+        <item>1419227</item>
+        <item>264111789</item>
+    </string-array>
+</resources>
