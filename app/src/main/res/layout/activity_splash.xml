@@ -13,7 +13,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/logo" />
 
-    <TextView
-        style="@style/SplashText"
-        android:text="@string/app_name_splash" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/shufflesongs_image_margin"
+        android:src="@drawable/shufflesongs" />
 </LinearLayout>

@@ -17,11 +17,6 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="SplashText" parent="BaseTextAppearance">
-        <item name="android:textSize">16sp</item>
-        <item name="android:padding">15dp</item>
-    </style>
-
     <style name="SongNameText" parent="BaseTextAppearance">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/colorPrimary</item>
