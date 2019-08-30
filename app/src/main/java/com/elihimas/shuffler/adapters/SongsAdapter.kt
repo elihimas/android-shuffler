@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.elihimas.shuffler.R
+import com.elihimas.shuffler.business.SongShuffler
 import com.elihimas.shuffler.model.Song
 import kotlinx.android.synthetic.main.song_item.view.*
 
@@ -29,6 +30,11 @@ class SongsAdapter(context: Context) : RecyclerView.Adapter<SongHolder>() {
 
     override fun onBindViewHolder(holder: SongHolder, position: Int) {
         holder.bind(songs[position], imageLoader)
+    }
+
+    fun shuffle() {
+        songs = SongShuffler.shuffle(songs)
+        notifyDataSetChanged()
     }
 
 }

@@ -3,6 +3,8 @@ package com.elihimas.shuffler.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -49,12 +51,12 @@ class ShufflerActivity : AppCompatActivity() {
         items_recycler.adapter = songsAdapter
     }
 
-    fun showLoading() {
+    private fun showLoading() {
         items_recycler.visibility = View.GONE
         progress_bar.visibility = View.VISIBLE
     }
 
-    fun hideLoading() {
+    private fun hideLoading() {
         items_recycler.visibility = View.VISIBLE
         progress_bar.visibility = View.GONE
     }
@@ -72,6 +74,8 @@ class ShufflerActivity : AppCompatActivity() {
 
     private fun showSongs(songs: List<Song>) {
         songsAdapter.updateList(songs)
+
+        invalidateOptionsMenu()
     }
 
     private fun showLoadError(error: VolleyError?) {
@@ -81,4 +85,20 @@ class ShufflerActivity : AppCompatActivity() {
 
         error_text.setText(R.string.load_error)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        if (songsAdapter.itemCount > 0) {
+            menuInflater.inflate(R.menu.shuffler_menu, menu)
+        }
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) =
+        when (item.itemId) {
+            R.id.menu_item_shuffle -> {
+                songsAdapter.shuffle()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 }
