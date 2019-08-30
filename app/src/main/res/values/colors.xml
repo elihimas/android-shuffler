@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="splashStartColor">#372637</color>
+    <color name="splashCenterColor">#372637</color>
+    <color name="splashEndColor">#79404f</color>
 </resources>
