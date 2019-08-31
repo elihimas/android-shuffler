@@ -1,6 +1,6 @@
 <resources>
-    <dimen name="artwork_size">76dp</dimen>
-    <dimen name="artwork_corner">38dp</dimen>
-    <dimen name="artwork_margin">15dp</dimen>
+    <dimen name="artwork_size">70dp</dimen>
+    <dimen name="artwork_corner">35dp</dimen>
+    <dimen name="artwork_margin">18dp</dimen>
     <dimen name="shufflesongs_image_margin">15dp</dimen>
 </resources>

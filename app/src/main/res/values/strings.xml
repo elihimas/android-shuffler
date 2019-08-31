@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Shuffle Songs</string>
-    <string name="load_error">It was not possible to load the songs list. Please, try again later.</string>
+    <string name="load_error">It was not possible to load the songs list :(\nPlease, verify your internet connection and try again later.</string>
     <string name="shuffle">Shuffle</string>
 </resources>

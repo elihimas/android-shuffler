@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#79404f</color>
+    <color name="colorPrimary">#462e3e</color>
     <color name="colorPrimaryDark">#372637</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="line_separator">#483b48</color>
 
-    <color name="splashStartColor">#372637</color>
-    <color name="splashCenterColor">#372637</color>
+    <color name="song_item_name">#c65f6c</color>
+    <color name="song_item_background">#372637</color>
+
     <color name="splashEndColor">#79404f</color>
 </resources>

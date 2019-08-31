@@ -14,13 +14,13 @@ object SongShuffler {
             while (artists.isNotEmpty()) {
                 val pickedArtistIndex = random(artists.size)
                 val pickedArtist = artists.removeAt(pickedArtistIndex)
+
                 val pickedArtistSongs = artistsSongsMap.getValue(pickedArtist)
                 val pickedSongIndex = random(pickedArtistSongs.size)
-                val pickedSong = pickedArtistSongs[pickedSongIndex]
+                val pickedSong = pickedArtistSongs.removeAt(pickedSongIndex)
 
                 shuffledSongs.add(pickedSong)
 
-                pickedArtistSongs.removeAt(pickedSongIndex)
                 if (pickedArtistSongs.isEmpty()) {
                     artistsSongsMap.remove(pickedArtist)
                 }
