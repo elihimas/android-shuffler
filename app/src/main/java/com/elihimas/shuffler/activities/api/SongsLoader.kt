@@ -10,10 +10,10 @@ import com.elihimas.shuffler.R
 import com.elihimas.shuffler.activities.model.SongsListState
 import com.google.gson.Gson
 
-class SongsLoader(val context: Context) {
+class SongsLoader(private val context: Context) {
 
     private companion object {
-        const val BASE_URL =
+        const val LOOKUP_URL =
             "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?id=%s"
     }
 
@@ -44,7 +44,7 @@ class SongsLoader(val context: Context) {
 
         val artistsIds = context.resources.getStringArray(R.array.artists_ids)
         artistsIds.forEach { id ->
-            val url = String.format(BASE_URL, id)
+            val url = String.format(LOOKUP_URL, id)
             val request = StringRequest(Request.Method.GET, url, ::loadSuccess, ::loadError)
             queue.add(request)
         }
