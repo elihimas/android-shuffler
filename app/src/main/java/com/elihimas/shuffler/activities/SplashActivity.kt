@@ -8,7 +8,7 @@ import com.elihimas.shuffler.R
 class SplashActivity : AppCompatActivity() {
 
     private companion object {
-        const val REDIRECT_DELAY = 1000L
+        const val REDIRECT_DELAY = 3000L
     }
 
     private val handler = Handler()

@@ -23,7 +23,7 @@ class ShufflerTest {
             }
         }
 
-        val songs = MockSongs()
+        val songs = mockSongs()
 
         for (run in 0..RUN_COUNT) {
             val result = SongShuffler.shuffle(songs)
@@ -32,8 +32,8 @@ class ShufflerTest {
 
     }
 
-    private fun MockSongs() =
-        listOf<Song>(
+    private fun mockSongs() =
+        listOf(
             Song("Samba em prelúdio", "Vinicius de Moraes", "url1", "bossa nova"),
             Song("O Pato", "Vinicius de Moraes", "url2", "bossa nova"),
             Song("Eu sei que vou te amar", "Vinicius de Moraes", "url3", "bossa nova"),
