@@ -42,6 +42,8 @@ class SongsAdapter(context: Context) : RecyclerView.Adapter<SongHolder>() {
 class SongHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(song: Song, imageLoader: LruImageLoader) {
         view.artwork_image.setImageUrl(song.artworkUrl, imageLoader)
+        view.artwork_image.contentDescription = view.context.resources.getString(R.string.artwork_description, song.trackName)
+
         view.song_name_text.text = song.trackName
         view.song_info_text.text = "${song.artistName} (${song.genreName})"
     }
